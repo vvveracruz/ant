@@ -33,3 +33,23 @@ def chebyshev_theta_upto(n):
     df['log']=df.is_prime.map(lambda n: _np.log(n) if n!=0 else 0)
     df['chebyshev_theta']=df.log.cumsum()
     return df['chebyshev_theta']
+
+def modulo_mult_table(n, returns_neg=False):
+    df=_pd.DataFrame(index=range(0, n, 1))
+    if returns_neg:
+        R=range(0,-n, -1)
+    else:
+        R=range(0, n, 1)
+    for i in R:
+        df[str(i)]=df.index.map(lambda x: (x*i)%n)
+    return df
+
+def modulo_sum_table(n, returns_neg=False):
+    df=_pd.DataFrame(index=range(0, n, 1))
+    if returns_neg:
+        R=range(0,-n, -1)
+    else:
+        R=range(0, n, 1)
+    for i in R:
+        df[str(i)]=df.index.map(lambda x: (x+i)%n)
+    return df
