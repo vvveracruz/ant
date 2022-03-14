@@ -8,7 +8,6 @@ then
     commit_message="Automated commit $gstatus"
     git add --all
     git commit -m $commit_message
-    echo "Committed with message\n$commit_message"
 	git pull
     git push
 
