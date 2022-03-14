@@ -5,10 +5,10 @@ gstatus=`git status --porcelain`
 if [ ${#gstatus} -ne 0 ]
 then
 
-    commit_message="Test $gstatus"
+    commit_message="Automated commit $gstatus"
     git add --all
     git commit -m $commit_message
-    echo "Commit with message $commit_message"
+    echo "Committed with message\n$commit_message"
 	git pull
     git push
 
