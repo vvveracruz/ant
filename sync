@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+gstatus=`git status --porcelain`
+
+if [ ${#gstatus} -ne 0 ]
+then
+
+    commit_message="Test $gstatus"
+    git add --all
+    git commit -m $commit_message
+    echo "Commit with message $commit_message"
+	git pull
+    git push
+
+fi
