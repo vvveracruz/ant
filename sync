@@ -1,12 +1,12 @@
 #!/bin/zsh
 
-gstatus=`git status --porcelain`
+gstatus=`git status --porcelain nb/*`
 
 if [ ${#gstatus} -ne 0 ]
 then
 
     commit_message="Automated commit $gstatus"
-    git add --all
+    git add nb/*
     git commit -m $commit_message
 	git pull
     git push
